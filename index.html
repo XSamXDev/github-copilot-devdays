@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Snake</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="game-card" aria-label="Snake game">
+        <header class="game-header">
+          <div>
+            <p class="eyebrow">ARCADE / 001</p>
+            <h1>Neon Snake</h1>
+          </div>
+          <div class="header-actions">
+            <button class="icon-button" id="soundButton" type="button" aria-label="Toggle sound">♫</button>
+            <button class="icon-button" id="pauseButton" type="button" aria-label="Pause game">Ⅱ</button>
+          </div>
+        </header>
+
+        <div class="stats" aria-live="polite">
+          <div class="stat">
+            <span>Score</span>
+            <strong id="score">000</strong>
+          </div>
+          <div class="stat stat-best">
+            <span>Best</span>
+            <strong id="best">000</strong>
+          </div>
+          <div class="level-badge" id="level">LEVEL 1</div>
+        </div>
+
+        <div class="board-wrap">
+          <canvas id="gameCanvas" width="600" height="600" aria-label="Snake game board"></canvas>
+          <div class="game-overlay" id="overlay">
+            <div class="overlay-content">
+              <span class="overlay-kicker">READY WHEN YOU ARE</span>
+              <h2 id="overlayTitle">Slither in.</h2>
+              <p id="overlayText">Eat the glowing fruit and avoid the walls.</p>
+              <button class="primary-button" id="startButton" type="button">Start game <span>→</span></button>
+            </div>
+          </div>
+        </div>
+
+        <footer class="game-footer">
+          <div class="control-hint"><span class="key">↑</span><span class="key">↓</span><span class="key">←</span><span class="key">→</span><span>to move</span></div>
+          <div class="control-hint"><span class="key key-space">SPACE</span><span>to pause</span></div>
+        </footer>
+
+        <div class="mobile-controls" aria-label="Touch controls">
+          <button type="button" data-direction="up" aria-label="Move up">↑</button>
+          <div>
+            <button type="button" data-direction="left" aria-label="Move left">←</button>
+            <button type="button" data-direction="down" aria-label="Move down">↓</button>
+            <button type="button" data-direction="right" aria-label="Move right">→</button>
+          </div>
+        </div>
+      </section>
+      <p class="page-note">Stay sharp. Keep growing.</p>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

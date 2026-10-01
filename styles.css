@@ -1,0 +1,79 @@
+:root {
+  color-scheme: dark;
+  --bg: #0a0c14;
+  --card: #121520;
+  --card-edge: rgba(255, 255, 255, .08);
+  --text: #f5f5f2;
+  --muted: #8a91a5;
+  --lime: #c9f66d;
+  --lime-dark: #8db832;
+  --purple: #a58cff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 50% -10%, #20233c 0, var(--bg) 43%);
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+button { font: inherit; }
+
+.game-shell { width: min(100% - 32px, 650px); padding: 28px 0; }
+.game-card {
+  padding: 28px;
+  border: 1px solid var(--card-edge);
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(24, 27, 42, .98), rgba(13, 15, 24, .98));
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .35), inset 0 1px rgba(255, 255, 255, .04);
+}
+
+.game-header, .stats, .game-footer { display: flex; align-items: center; justify-content: space-between; }
+.eyebrow { margin: 0 0 6px; color: var(--lime); font: 500 11px "DM Mono", monospace; letter-spacing: .18em; }
+h1 { margin: 0; font-size: clamp(27px, 5vw, 36px); letter-spacing: -.05em; }
+.header-actions { display: flex; gap: 8px; }
+.icon-button {
+  width: 40px; height: 40px; border: 1px solid var(--card-edge); border-radius: 11px;
+  background: #1a1e2d; color: var(--muted); cursor: pointer; transition: .2s ease;
+}
+.icon-button:hover, .icon-button:focus-visible { color: var(--lime); border-color: var(--lime-dark); transform: translateY(-2px); }
+
+.stats { padding: 28px 2px 18px; }
+.stat { display: grid; gap: 4px; }
+.stat span { color: var(--muted); font: 11px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .1em; }
+.stat strong { font: 500 25px "DM Mono", monospace; }
+.stat-best strong { color: var(--purple); }
+.level-badge { padding: 7px 10px; border: 1px solid rgba(201, 246, 109, .2); border-radius: 6px; color: var(--lime); font: 11px "DM Mono", monospace; letter-spacing: .08em; }
+
+.board-wrap { position: relative; overflow: hidden; border-radius: 13px; background: #090c0d; box-shadow: 0 0 0 1px rgba(255,255,255,.05); }
+canvas { display: block; width: 100%; height: auto; aspect-ratio: 1; background: #101918; }
+.game-overlay { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; background: rgba(7, 9, 14, .72); backdrop-filter: blur(4px); transition: opacity .25s; }
+.game-overlay.hidden { opacity: 0; pointer-events: none; }
+.overlay-content { max-width: 280px; text-align: center; }
+.overlay-kicker { color: var(--lime); font: 11px "DM Mono", monospace; letter-spacing: .15em; }
+h2 { margin: 12px 0 7px; font-size: 33px; letter-spacing: -.05em; }
+.overlay-content p { margin: 0 0 22px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.primary-button { padding: 12px 17px; border: 0; border-radius: 8px; background: var(--lime); color: #161b0d; font-weight: 700; cursor: pointer; transition: .2s; }
+.primary-button span { margin-left: 12px; font-size: 18px; }
+.primary-button:hover, .primary-button:focus-visible { background: #ddff8d; transform: translateY(-2px); }
+
+.game-footer { padding: 18px 2px 0; color: var(--muted); font: 11px "DM Mono", monospace; }
+.control-hint { display: flex; align-items: center; gap: 5px; }
+.key { display: grid; width: 19px; height: 19px; place-items: center; border: 1px solid #44495b; border-radius: 4px; color: #d3d5df; font-size: 12px; }
+.key-space { width: auto; padding: 0 5px; font-size: 9px; }
+.mobile-controls { display: none; padding-top: 20px; text-align: center; }
+.mobile-controls button { width: 46px; height: 38px; margin: 3px; border: 1px solid #373d4d; border-radius: 8px; background: #1a1e2b; color: var(--text); }
+.page-note { margin: 17px 0 0; color: #4e5363; text-align: center; font: 11px "DM Mono", monospace; letter-spacing: .12em; }
+
+@media (max-width: 520px) {
+  .game-shell { width: min(100% - 20px, 650px); }
+  .game-card { padding: 20px; border-radius: 19px; }
+  .game-footer { display: none; }
+  .mobile-controls { display: block; }
+}
